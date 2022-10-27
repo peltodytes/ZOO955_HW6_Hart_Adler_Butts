@@ -2,8 +2,8 @@
 
 require(dplyr); require(ggplot2)
 
-zoop = 500
-macinv = 500
+zoop = 2000
+macinv = 2000
 yp = 1
 
 df<- data.frame(matrix(ncol=6, nrow=101))
@@ -38,7 +38,7 @@ for (i in 2: nrow(df)){
     
     current_pop = current_pop[-match(food, current_pop)]
     
-    bm = bm + ifelse(food == 'macinv', 10, 1)
+    bm = bm + ifelse(food == 'macinv', 2, 1)
     
     if  (bm >= 50 ) break
     
@@ -48,7 +48,7 @@ for (i in 2: nrow(df)){
   
   df$biomass[i] = bm
   
-  new_zoop = round(length(current_pop[current_pop == 'zoop'])*1.01)
+  new_zoop = round(length(current_pop[current_pop == 'zoop'])*1.0075)
   new_macinv = round(length(current_pop[current_pop == 'macinv'])*1.01)
   
   current_pop = c(rep('zoop', times = new_zoop),
@@ -59,6 +59,9 @@ for (i in 2: nrow(df)){
   
   
 }
+
+ggplot(df, aes(day, zoop))+
+  geom_point()
 
 ggplot(df, aes(day, macinv))+
   geom_point()

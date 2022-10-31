@@ -73,10 +73,14 @@ for (i in 2: nrow(df)){
   
 }
 
-ggplot(df, aes(day, zoop))+
+ggplot(df, aes(day, zoop)) + 
+  xlab('timepoint') +
+  ylab('zooplankton abundance') +
   geom_point()
 
-ggplot(df, aes(day, macinv))+
+ggplot(df, aes(day, macinv))+ 
+  xlab('timepoint') + 
+  ylab('macroinvertebrate abundance') +
   geom_point()
 
 ###=================== Preference for macroinvertebrates over zooplankton ###===================
@@ -150,8 +154,13 @@ for (i in 2: nrow(df)){
   
 }
 
-ggplot(df, aes(day, zoop))+
+ggplot(df, aes(day, zoop)) + 
+  xlab('timepoint') +
+  ylab('zooplankton abundance') +
   geom_point()
 
 ggplot(df, aes(day, macinv))+
+  xlab('timepoint') +
+  ylab('macroinvertebrate abundance') +
   geom_point()
+
